@@ -9,7 +9,14 @@ import './index.css';
 class Lightbulb extends React.Component {
     render() {
       return (
-        <img class="lightbulb" src={lightbulb_icon}/>
+        <img
+          class="lightbulb" 
+          src={
+            this.props.value
+              ? lightbulb_icon
+              : lightbulb_inactive_icon
+          }
+        />
       );
     }
   }
@@ -40,20 +47,24 @@ class Lightbulb extends React.Component {
         return <Button value={this.state.buttons[i]}/>
     }
     render() {
+      let lightbulbsState = getLightbulbsState(this.state.buttons);
       return (
         <div>
             <div class="status">
-                <p>Turn on all the lights!</p>
+                {isVictory(this.state.buttons)
+                 ? <p class="victory">Victory!</p>
+                 : <p>Turn on all the lights!</p>
+                }
             </div>
             <div class="panel">
                 <div class="lightbulbs">
-                    <Lightbulb/>
-                    <Lightbulb/>
-                    <Lightbulb/>
-                    <Lightbulb/>
-                    <Lightbulb/>
-                    <Lightbulb/>
-                    <Lightbulb/>
+                    <Lightbulb value={lightbulbsState[0]}/>
+                    <Lightbulb value={lightbulbsState[1]}/>
+                    <Lightbulb value={lightbulbsState[2]}/>
+                    <Lightbulb value={lightbulbsState[3]}/>
+                    <Lightbulb value={lightbulbsState[4]}/>
+                    <Lightbulb value={lightbulbsState[5]}/>
+                    <Lightbulb value={lightbulbsState[6]}/>
                 </div>
             </div>
             <div class="panel">
@@ -70,6 +81,36 @@ class Lightbulb extends React.Component {
         </div>
       );
     }
+  }
+
+  function getLightbulbsState(buttons) {
+    const buttonMasks = [
+        [1, 0, 1, 1, 0, 1, 0],
+        [1, 1, 0, 0, 0, 1, 1],
+        [0, 1, 1, 1, 0, 0, 1],
+        [1, 0, 1, 0, 1, 0, 1],
+        [0, 1, 1, 1, 0, 1, 0],
+        [0, 0, 1, 1, 0, 0, 1],
+        [1, 0, 0, 1, 0, 0, 1]
+    ];
+    let lightbulbsState = Array(7).fill(false);
+    for (let i = 0; i < buttons.length; ++i) {
+        if (buttons[i]) {
+            for (let j = 0; j < 7; ++j) {
+                lightbulbsState[j] ^= buttonMasks[i][j];
+            }
+        }
+    }
+    return lightbulbsState;
+  }
+
+  function isVictory(buttons) {
+    let lightbulbsState = getLightbulbsState(buttons);
+    let ans = true;
+    for (let i = 0; i < 7; ++i) {
+        ans = ans && lightbulbsState[i];
+    }
+    return ans;
   }
   
   // ========================================
