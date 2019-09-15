@@ -31,6 +31,7 @@ class Lightbulb extends React.Component {
               ? button_icon
               : button_inactive_icon
           }
+          onClick={this.props.onClick}
         />
       );
     }
@@ -43,8 +44,16 @@ class Lightbulb extends React.Component {
             buttons: Array(7).fill(false),
         }
     }
+    handleClick(i) {
+        const buttons = this.state.buttons.slice();
+        buttons[i] = !buttons[i];
+        this.setState({buttons: buttons});
+    }
     renderButton(i) {
-        return <Button value={this.state.buttons[i]}/>
+        return(
+          <Button 
+            value={this.state.buttons[i]}
+            onClick={() => this.handleClick(i)}/>);
     }
     render() {
       let lightbulbsState = getLightbulbsState(this.state.buttons);
