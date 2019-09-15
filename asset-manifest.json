@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/lightbulbs/static/css/main.661ec596.chunk.css",
+    "main.js": "/lightbulbs/static/js/main.41d40653.chunk.js",
+    "main.js.map": "/lightbulbs/static/js/main.41d40653.chunk.js.map",
+    "runtime~main.js": "/lightbulbs/static/js/runtime~main.1b97642d.js",
+    "runtime~main.js.map": "/lightbulbs/static/js/runtime~main.1b97642d.js.map",
+    "static/js/2.ab2baf33.chunk.js": "/lightbulbs/static/js/2.ab2baf33.chunk.js",
+    "static/js/2.ab2baf33.chunk.js.map": "/lightbulbs/static/js/2.ab2baf33.chunk.js.map",
+    "index.html": "/lightbulbs/index.html",
+    "precache-manifest.e5b67017c645f12ec55d2b2a8adc1ccd.js": "/lightbulbs/precache-manifest.e5b67017c645f12ec55d2b2a8adc1ccd.js",
+    "service-worker.js": "/lightbulbs/service-worker.js",
+    "static/css/main.661ec596.chunk.css.map": "/lightbulbs/static/css/main.661ec596.chunk.css.map",
+    "static/media/button-inactive.svg": "/lightbulbs/static/media/button-inactive.a2be0ba2.svg",
+    "static/media/button.svg": "/lightbulbs/static/media/button.f9c31452.svg",
+    "static/media/lightbulb-inactive.svg": "/lightbulbs/static/media/lightbulb-inactive.daf85581.svg",
+    "static/media/lightbulb.svg": "/lightbulbs/static/media/lightbulb.4620fecc.svg"
+  }
+}
