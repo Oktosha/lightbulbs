@@ -1,44 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import lightbulb_icon from './assets/lightbulb.svg';
+import button_icon from './assets/button.svg';
 import './index.css';
 
-class Square extends React.Component {
+class Lightbulb extends React.Component {
     render() {
       return (
-        <button className="square">
-          {/* TODO */}
-        </button>
+        <img class="lightbulb" src={lightbulb_icon}/>
       );
     }
   }
   
-  class Board extends React.Component {
-    renderSquare(i) {
-      return <Square />;
-    }
-  
+  class Button extends React.Component {
     render() {
-      const status = 'Next player: X';
-  
       return (
-        <div>
-          <div className="status">{status}</div>
-          <div className="board-row">
-            {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
-          </div>
-        </div>
+        <img class="button" src={button_icon}/>
       );
     }
   }
@@ -46,14 +23,32 @@ class Square extends React.Component {
   class Game extends React.Component {
     render() {
       return (
-        <div className="game">
-          <div className="game-board">
-            <Board />
-          </div>
-          <div className="game-info">
-            <div>{/* status */}</div>
-            <ol>{/* TODO */}</ol>
-          </div>
+        <div>
+            <div class="status">
+                <p>Turn on all the lights!</p>
+            </div>
+            <div class="panel">
+                <div class="lightbulbs">
+                    <Lightbulb/>
+                    <Lightbulb/>
+                    <Lightbulb/>
+                    <Lightbulb/>
+                    <Lightbulb/>
+                    <Lightbulb/>
+                    <Lightbulb/>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="buttons">
+                    <Button/>
+                    <Button/>
+                    <Button/>
+                    <Button/>
+                    <Button/>
+                    <Button/>
+                    <Button/>
+                </div>
+            </div>
         </div>
       );
     }
